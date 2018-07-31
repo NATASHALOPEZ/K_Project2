@@ -1,0 +1,383 @@
+@media (min-width: 1170px) and (max-width: 1400px) {
+
+
+
+
+
+}
+.header-link a {
+  font-size: 10px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 12px;
+}
+.button {
+    background-color: #68819b;
+    border: medium none;
+    border-radius: 50px;
+    color: #fff;
+e-height: 36px;
+    padd    display: block;
+    float: left;
+
+    font-size: 12px;
+    height: 36px;
+    lining: 0 18px;
+    text-transform: uppercase;
+}
+.header-link a i {
+  height: 24px;
+  line-height: 24px;
+  width: 24px;
+}
+
+
+/* Normal desktop :992px. */
+@media only screen and (min-width: 992px) and (max-width: 1169px) {
+.main-menu nav > ul > li + li {
+  margin-left: 20px;
+}
+.header-link {
+  margin-left: 20px;
+}
+.home-map-container .map-unlock, .home-map-container .map-lock {
+  bottom: 180px;
+  right: 10px;
+}
+.location-search .input-kayword, .location-search .input-location {
+  width: 230px;
+}
+.location-search .input-range {
+  width: 215px;
+}
+.tab-pane .sin-busi-post .footer .date {
+  display: block;
+  float: left;
+  margin-top: 5px;
+}
+
+
+
+}
+
+/* Tablet desktop :768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.header-top {
+  text-align: center;
+}
+.header-top-left p, .header-search, .header-social {
+  display: inline-block;
+  float: none;
+}
+.header-right {
+  border-top: 1px solid #374553;
+  height: 49px;
+}
+.home-map-container .map-unlock, .home-map-container .map-lock {
+  bottom: 180px;
+  right: 10px;
+}
+.location-search .input-kayword, .location-search .input-location {
+  width: 170px;
+  margin-right: 15px;
+}
+.location-search .input-range {
+  margin-right: 15px;
+  width: 168px;
+}
+.sin-offer-item .content {
+  margin-top: 30px;
+}
+.sin-footer:nth-child(2n+1) {
+  clear: both;
+}
+.footer-about, .footer-contact {
+  margin-bottom: 50px;
+}
+.business-sidebar {
+  margin-bottom: 60px;
+  padding: 0;
+}
+.sin-busi-sidebar {
+  float: left;
+  padding: 0 15px;
+  width: 50%;
+}
+.sin-busi-sidebar:nth-child(2n+1) {
+  clear: both;
+}
+.business-post-area {
+  margin-bottom: 60px;
+}
+.sidebar-container {
+  padding: 0;
+}
+.search-sidebar {
+  padding: 0 15px;
+}
+.sin-sidebar {
+  float: left;
+  margin-bottom: 75px;
+  padding: 0 15px;
+  width: 50%;
+}
+.sin-sidebar:nth-child(2n) {
+  clear: both;
+}
+.our-offer {
+  margin-bottom: 60px;
+}
+
+
+
+}
+
+/* Large Mobile :480px. */
+@media only screen and (max-width: 767px) {
+.container{
+  width: 450px;
+}
+.header {
+  position: static;
+}
+.location-search .input-submit button {
+  background: #00aeff none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 2px;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  line-height: 36px;
+  padding: 0 4px;
+  text-transform: uppercase;
+  width: 100%;
+   margin-top: 0px;
+  margin-left: 34px;
+}
+.header-top {
+  text-align: center;
+}
+.header-top-left p, .header-search, .header-social {
+  display: inline-block;
+  float: none;
+}
+.header-search {
+  margin-bottom: 15px;
+  margin-left: 0;
+  margin-top: 0;
+}
+.header-right {
+  border-top: 1px solid #374553;
+  height: 49px;
+}
+.header-logo a img {
+  width: 140px;
+}
+.header-link a {
+  font-size: 10px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 12px;
+}
+.button {
+    background-color: #68819b;
+    border: medium none;
+    border-radius: 50px;
+    color: #fff;
+e-height: 36px;
+    padd    display: block;
+    float: left;
+    font-size: 12px;
+    height: 36px;
+    lining: 0 18px;
+    text-transform: uppercase;
+}
+.header-link a i {
+  height: 24px;
+  line-height: 24px;
+  width: 24px;
+}
+a.meanmenu-reveal {
+  top: -40px;
+}
+.home-map-container {
+  padding-bottom: 170px;
+}
+.map-unlock {
+  display: none;
+}
+.location-search .input-kayword, .location-search .input-location, .location-search .input-range {
+  margin-bottom: 15px;
+  margin-right: 0;
+  width: 100%;
+}
+.search-form form input {
+  margin-right: 15px;
+  width: 190px;
+}
+.sin-offer-item .content {
+  margin-top: 30px;
+}
+.sin-offer-item .content .head .logo {
+  margin-bottom: 15px;
+  margin-right: 0;
+  width: 100%;
+}
+.sin-offer-item .content .head .logo img {
+  width: auto;
+}
+.sin-footer {
+  margin-bottom: 50px;
+}
+.sin-footer:last-child {
+  margin-bottom: 0;
+}
+.footer-menu ul li {
+  margin: 0 10px;
+}
+.business-data-wrapper .content {
+  width: 100%;
+  margin-top: 30px;
+  float: left;
+}
+.business-data-wrapper .business-social {
+  position: static;
+  margin-top: 30px;
+  float: left;
+}
+.business-sidebar {
+  margin-bottom: 60px;
+}
+.business-post-area {
+  margin-bottom: 60px;
+}
+.sin-busi-post .footer .date {
+  clear: both;
+  float: left;
+  margin-top: 5px;
+}
+.busi-photos-wrapper .sin-photo {
+  width: 33.33%;
+}
+.busi-photos-wrapper .sin-photo:nth-child(4) {
+  margin-top: 25px;
+}
+.input-three .input-box, .input-two .input-box {
+  width: 100%;
+}
+.input-box textarea {
+  height: 190px;
+}
+.our-offer {
+  margin-bottom: 60px;
+}
+.login-form .button {
+  margin-bottom: 15px;
+}
+.login-form .button:last-child {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+.input-box label.opacity {
+  display: none;
+}
+.sin-pub-offer .title {
+  width: 335px;
+}
+.business-details-form .about-business textarea {
+  height: 220px;
+}
+.business-details-form .category-select select {
+  width: 100%;
+}
+
+}
+/* small mobile :320px. */
+@media only screen and (max-width: 479px) {
+
+
+.container{
+  width: 300px;
+  
+}
+.header-social a {
+  width: 38px;
+}
+.header-logo a img {
+  width: auto;
+}
+.header-link {
+  float: left;
+  margin-left: 0;
+  margin-top: 20px;
+}
+a.meanmenu-reveal {
+  left: auto !important;
+  right: 0 !important;
+  top: -37px;
+}
+.search-form {
+  float: left;
+  margin-top: 15px;
+}
+.search-form form input {
+  margin-right: 14px;
+  width: 215px;
+}
+.business-tab-list ul li a {
+  background-position: -5px center;
+  padding: 0 10px 0 30px;
+}
+.sin-busi-post .footer .post-comment {
+  margin-top: 10px;
+}
+.search-sidebar form {
+  width: 100%;
+}
+.busi-photos-wrapper .sin-photo {
+  width: 50%;
+}
+.busi-photos-wrapper .sin-photo:nth-child(3), .busi-photos-wrapper .sin-photo:nth-child(4) {
+  margin-top: 25px;
+}
+.sin-comment .content {
+  float: left;
+  margin-top: 10px;
+  padding-right: 0;
+  width: 100%;
+}
+.login-form .button.social-login {
+  margin-left: 0;
+}
+.business-buttons .busi-btn {
+  clear: both;
+  margin-bottom: 10px;
+}
+.sin-pub-offer .title {
+  width: 100%;
+  margin-top: 10px;
+}
+.business-details-form .open-close-time .head p {
+  width: 50%;
+}
+.business-details-form .open-close-time .head p:first-child {
+  display: none;
+}
+.business-details-form .open-close-time .head p:last-child {
+  margin-left: 0;
+}
+.business-details-form .open-close-time .days h4 {
+  width: 100%;
+}
+.business-details-form .open-close-time .days input {
+  width: 120px;
+}
+.business-details-form .open-close-time .days input:last-child {
+  margin-left: 30px;
+}
+.page-404 h1 {
+  font-size: 120px;
+}
+
+
+}

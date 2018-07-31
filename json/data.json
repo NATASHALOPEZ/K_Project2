@@ -1,0 +1,14 @@
+{
+  "list" : [{
+				"label" : "first item",
+				"category" : "cat1",
+				"desc" : "desc1"
+			}, {
+				"label" : "second item",
+				"category" : "cat1",
+				"desc" : "desc2"
+			}, {
+				"label" : "third item",
+				"category" : "cat1"
+			}]
+}

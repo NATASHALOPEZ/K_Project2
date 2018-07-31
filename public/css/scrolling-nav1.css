@@ -1,0 +1,248 @@
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template-overviews/scrolling-nav)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
+@font-face {
+   font-family: Alice-Regular;
+   src: url('{{ public_path('fonts/Alice-Regular.tff') }}');
+}
+
+* {
+   font-family: Alice-Regular;
+   font-size: 24px;
+}
+
+header {
+  padding: 154px 0 100px;
+}
+
+@media (min-width: 992px) {
+  header {
+    padding: 100px 0 100px;
+  }
+  #navbarResponsive{
+	height:55px;
+}
+#map {
+ 
+     height: 100%;
+     width: 100%;
+    }
+#logo{
+  font-size: 24px;
+}
+  
+}
+
+section {
+  padding: 150px 0;
+}
+#bgDiv{
+  width: 100%;
+  height: 10%;
+  min-height: 10%;
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  opacity: 0.85;
+  z-index: 10;
+}
+#data{
+display: none;
+}
+#lati{
+display: none;
+}
+#long{
+display: none;
+}
+  
+  .map-container {
+  position: relative;
+}
+.home-map-container {
+  padding-bottom: 60px;
+}
+#map {
+  height: 850px;
+}
+
+.home-map-container .home-map-container{
+  bottom: 180px;
+}
+
+.gm-style-iw > div {
+  transform: translateX(13px);
+  padding-bottom: 10px;
+  padding-top: 30px;
+}
+#mapBodyContent {
+  text-align: center;
+}
+#mapBodyContent img {
+  display: block;
+}
+#mapBodyContent a {
+  display: inline-block;
+  float: none;
+  margin-top: 15px;
+}
+#mapBodyContent a:hover {
+  background: #68819b none repeat scroll 0 0;
+  color: #fff;
+}
+/* Location Search Form On Map */
+.location-search-float {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+ .location-search {
+  background: #fff none repeat scroll 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.23);
+  padding: 34px 30px 165px 25px;
+
+}
+.location-search h2 {
+  color: #262b2f;
+  font-size: 14px;
+  line-height: 12px;
+  margin: 0 0 25px;
+  text-transform: uppercase;
+}
+.location-search form{}
+.location-search .input-kayword {
+  margin-right: 27px;
+  float: left;
+  width: 309px;
+}
+.location-search .input-kayword input {
+  border: 1px solid #ececec;
+  color: #606060;
+  height: 36px;
+  padding: 0 21px;
+  width: 100%;
+}
+.location-search .input-location {
+  margin-right: 35px;
+  float: left;
+  width: 309px;
+}
+.location-search .input-location input {
+  border: 1px solid #ececec;
+  color: #606060;
+  height: 36px;
+  padding: 0 21px;
+  width: 100%;
+}
+.location-search .input-range {
+  float: left;
+  margin-right: 35px;
+  width: 255px;
+}
+.location-search .input-range p {
+  color: #5f5f5f;
+  font-size: 12px;
+  line-height: 12px;
+  margin-bottom: 13px;
+}
+.location-search .input-range p span {
+  color: #252525;
+  font-weight: 600;
+}
+.location-search .input-range p span::after {
+  content: "km"
+}
+.location-search .input-range input{}
+.input-range .rangeslider {
+  background-color: transparent;
+  border-radius: 50px;
+  box-shadow: none;
+  height: 7px;
+}
+.rangeslider .range_fill_bg {
+  background-color: #d4dee5;
+  border-radius: 50px;
+  box-shadow: none;
+  height: 100%;
+  position: static;
+}
+.rangeslider .range_fill {
+  border-radius: 50px;
+  box-shadow: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+.orange .rangeslider .range_fill {
+  background: #f56719;
+}
+.blue .rangeslider .range_fill {
+  background: #00aeff;
+}
+.rangeslider .range_handle {
+  border: medium none;
+  border-radius: 50px;
+  box-shadow: none;
+  height: 16px;
+  position: absolute;
+  top: -5px;
+  width: 16px;
+}
+.orange .rangeslider .range_handle {
+  background: #f56719;
+}
+.blue .rangeslider .range_handle {
+  background: #00aeff;
+}
+
+input[type=text] {
+    width: 300px;
+    display: inline-block;
+    
+    height: 40px;
+    padding: 15px;
+   
+}
+.btn {
+    width: 80px;
+    display: inline-block;
+    
+    height: 40px;
+    padding: 8px;
+    margin-left: 50px;
+    margin-top: 2px;
+  
+   
+}
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { right:0px;}
+.right-addon .glyphicon { right: 25px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+
+
+@media (max-width: 360px) {
+
+
+
+}
