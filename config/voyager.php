@@ -11,7 +11,7 @@ return [
     */
 
     'user' => [
-        'add_default_role_on_register' => false,
+        'add_default_role_on_register' => true,
         'default_role'                 => 'admin',
         // Set `namespace` to `null` to use `config('auth.providers.users.model')` value
         // Set `namespace` to a class to override auth user model.

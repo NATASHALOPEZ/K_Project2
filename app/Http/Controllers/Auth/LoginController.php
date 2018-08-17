@@ -53,15 +53,17 @@ class LoginController extends Controller
       
       if($user['role_id']==1)
         {
-          return redirect('/admin');            
+       
+        return redirect('/admin');
+                    
        }
      else {
-        return redirect('/home');
+        return redirect('/');
      }
 }
-/*public function logout(Request $request) {
+public function logout(Request $request) {
   Auth::logout();
   return redirect('/login');
-}*/
+}
 }
 

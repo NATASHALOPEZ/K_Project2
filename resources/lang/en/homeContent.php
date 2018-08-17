@@ -26,7 +26,7 @@ return [
 'contact' => 'Contact',
 'sign_in' => 'Sign In',
 'register' => 'Register',
-'make_a_search' =>'Search for a Laundry',
+'make_a_search' =>'Search for a Laundromat',
 'laundries_near_you' =>'Laundries Near You!',
 'searchLocation' => 'Search Location',
 

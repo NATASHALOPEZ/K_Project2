@@ -13,11 +13,20 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*Route::get('locale', function () {
+    return \App::getLocale();
+});
+Route::get('locale/{locale}', function ($locale) {
+    \Session::put('locale', $locale);
+    return redirect()->back();
+});*/
 
-Route::get('/', function () {
+    Route::get('/', function () {
      
      return redirect('/welcome');
 });
+
+  
 View::composer('layouts.template', function($view){
    $img = Banner::all();
    $view->with('img', $img);
@@ -67,8 +76,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('post/{slug}', ['as' => 'post.show', 'uses' => 'washstationsController@show']);
 
 
-Route::get('/register_admin', 'adminController@index')->name('register_admin');
-Route::post('/register_admin', 'adminController@register')->name('register_admin');
+Route::get('/register_admin', 'Auth\AdminController@index')->name('register_admin');
+Route::post('/register_admin', 'Auth\AdminController@register')->name('register_admin');
+Route::get('/home/{vat_id}', 'washstationsController@validateVATID');
+
+
 
 
 

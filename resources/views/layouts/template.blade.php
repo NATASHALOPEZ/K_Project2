@@ -112,11 +112,12 @@
           <div class="header-bottom-wrap" >
             <!-- Logo -->
             <div class="header-logo float-left">
-              <a href="index.html"><img src="/images/Logo_Image_01.png" style="height: 80px;width: 80px;" alt="logo" /></a>
+              <a href="index.html">&nbsp;</a>
             </div>
-
+           
             <!-- Header Link -->
-            <div class="header-link float-right">
+            <div class="header-link float-right hidden-sm hidden-xs">
+ <h5 style="text-transform: uppercase;">own a Laundry?</h5>
               <a style="text-decoration: none;" href="{{ route('login') }}" class="button blue icon">{{ __('homeContent.sign_in')}} <i class="fa fa-angle-right"></i></a>
               <a style="text-decoration: none;" href="{{ route('register') }}" class="button">{{ __('homeContent.register')}}</a>
             </div>
@@ -184,32 +185,11 @@
             </div>
             <!-- Mobile Menu -->
   <div class="mobile-menu hidden-lg hidden-md">
-              <nav>
-                <ul>
-                  <li><a href="index.html">home</a></li>
-                  <li><a href="wall.html">wall</a></li>
-                  <li><a href="offer.html">offers</a></li>
-                  <li><a href="business.html">business</a></li>
-                  <li><a href="blog.html">blog</a></li>
-                  <li><a href="#">pages<i class="fa fa-caret-down"></i></a>
-                    <ul>
-                      <li><a href="blog.html">blog</a></li>
-                      <li><a href="blog-details.html">blog details</a></li>
-                      <li><a href="contact.html">contact</a></li>
-                      <li><a href="login.html">login</a></li>
-                      <li><a href="message.html">message</a></li>
-                      <li><a href="business.html">my business</a></li>
-                      <li><a href="business-details.html">my business details</a></li>
-                      <li><a href="offer.html">offer</a></li>
-                      <li><a href="photo.html">photo</a></li>
-                      <li><a href="profile.html">profile</a></li>
-                      <li><a href="register.html">register</a></li>
-                      <li><a href="wall.html">wall</a></li>
-                      <li><a href="wall-collection.html">wall collection</a></li>
-                      <li><a href="404.html">404</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="contact.html">contact</a></li>
+              <nav  >
+                <ul class="header-link float-right">
+                  <a style="text-decoration: none;" href="{{ route('login') }}" class="button blue icon">{{ __('homeContent.sign_in')}} <i class="fa fa-angle-right"></i></a>
+                   <a style="text-decoration: none;" href="{{ route('register') }}" class="button">{{ __('homeContent.register')}}</a>
+                 
                 </ul>
               </nav>
             </div>

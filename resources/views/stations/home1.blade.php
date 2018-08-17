@@ -5,22 +5,12 @@
 <!-- Map
 ============================================ -->
 <?php
-$supportedLangs = array('en', 'fr');
-$languages = explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-foreach($languages as $lang)
-{
-  if(in_array($lang, $supportedLangs))
-  {
-                // Set the page locale to the first supported language found
-    $page->setLocale($lang);
 
-                break;
-
-  }
- }   
 
 $data = json_encode($data,true);
 echo '<div id= "data">' . $data . '</div>';
+
+  
 
 
 ?>

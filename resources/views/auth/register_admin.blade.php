@@ -28,17 +28,17 @@
             <div class="register-form text-center col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-12">
                 <form method="POST" action="{{ route('register_admin') }}">
                     {{ csrf_field() }}
-                    <input type='hidden' name='role_id' id='role_id' value='1'/>
+                    <input type='hidden' name='role_id'  value='1'/>
 
                     <div class="input-two space-80">
                         <div class="input-box">
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">First Name</label>
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                            <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">
+                            <label for="fname">First Name</label>
+                            <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('fname'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('fname') }}</strong>
                                     </span>
                                 @endif
                         </div>
@@ -68,23 +68,13 @@
                                 @endif
                         </div>
                     </div>
-                            <div class="input-box">
-                            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="username">User Name</label>
-                            <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required>
-                            @if ($errors->has('username'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>                
-                    </div>                
-                  <div class="input-two space-80">
-                         <div class="input-box">
+                     <div class="input-box">
                             <label for="password">Password</label>
                             <input type="password" id="password" name="password"/>
-                        </div>
+                        </div>            
+                    </div>                
+                  <div class="input-two space-80">
+                        
                             <div class="input-box">
                      <label for="password-confirm" class="control-label">Confirm Password</label>
                       <input id="password-confirm" type="password"  name="password_confirmation" required>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ec42fcd804f9cb7a45da1a8f684284c",
+    "content-hash": "bfa7a3cd2eb8a030b37d1c9ebfb40276",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -2188,6 +2188,72 @@
                 "psr-3"
             ],
             "time": "2017-06-19T01:22:40+00:00"
+        },
+        {
+            "name": "mpociot/vat-calculator",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpociot/vat-calculator.git",
+                "reference": "06e3f7b331192d3ea40ba3a8d57c378fc4e28d80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpociot/vat-calculator/zipball/06e3f7b331192d3ea40ba3a8d57c378fc4e28d80",
+                "reference": "06e3f7b331192d3ea40ba3a8d57c378fc4e28d80",
+                "shasum": ""
+            },
+            "require": {
+                "ext-soap": "*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "illuminate/support": "~5.0",
+                "illuminate/validation": "~5.0",
+                "mockery/mockery": "dev-master",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "4.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mpociot\\VatCalculator\\VatCalculatorServiceProvider"
+                    ],
+                    "aliases": {
+                        "VatCalculator": "Mpociot\\VatCalculator\\Facades\\VatCalculator"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/controllers/Controller.php"
+                ],
+                "psr-0": {
+                    "Mpociot\\VatCalculator": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "m.pociot@gmail.com"
+                }
+            ],
+            "description": "EU VAT calculation, the way it should be.",
+            "keywords": [
+                "EU Moss",
+                "VAT ID",
+                "cashier",
+                "tax",
+                "tax calculation",
+                "vat",
+                "vat calculation"
+            ],
+            "time": "2018-06-12T15:41:14+00:00"
         },
         {
             "name": "mtdowling/cron-expression",

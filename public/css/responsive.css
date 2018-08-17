@@ -271,6 +271,24 @@ a.meanmenu-reveal {
 .map-unlock {
   display: none;
 }
+.main-banner{
+  margin: 0 auto;
+  width: 728px;
+  height: 90px;
+  overflow: hidden;
+  position: relative;
+}
+.main-banner .imgban{
+  display:block;
+  height:auto;
+  max-width:100%;
+
+transition: all ease-in-out 1000ms;
+-webkit-transition: all ease-in-out 1000ms;
+-moz-transition: all ease-in-out 1000ms;
+-o-transition: all ease-in-out 1000ms;
+}
+
 /*.location-search-float {
   top:700px;
   bottom: 0;

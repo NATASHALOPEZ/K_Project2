@@ -92,6 +92,10 @@ ul{
   margin: 0;
   padding: 0
 }
+li{
+   margin-bottom: 10px;
+  
+}
 
 /*----------------------------------------*/
 /*  2.  Header Area
@@ -210,15 +214,29 @@ ul{
   background-color: rgba(255, 255, 255, 0.8);
   padding: 28px 0;
 }
-.header-logo{
 
+.header-logo{
+    background: transparent url(/images/Logo_Image_01.png);
+    background-size: contain;
+
+    background-repeat: no-repeat;
+    
+    width:75px;
+    max-width: 100%;
+    height: 75px;
+    max-height: 100%;
 }
+
 .header-logo a {
   display: block;
   
 }
 .header-logo a img{}
-
+.img-responsive img {
+  display:block;
+  height:auto;
+  width: auto;
+}
 .main-banner{
   margin: 0 auto;
   width: 728px;
@@ -227,14 +245,14 @@ ul{
   position: relative;
 }
 .main-banner .imgban{
-height: 100%;
-width: 100%;
-position: absolute;
-top: 0px;
-transition: all ease-in-out 800ms;
--webkit-transition: all ease-in-out 800ms;
--moz-transition: all ease-in-out 800ms;
--o-transition: all ease-in-out 800ms;
+  display:block;
+  height:auto;
+  max-width:100%;
+
+transition: all ease-in-out 1000ms;
+-webkit-transition: all ease-in-out 1000ms;
+-moz-transition: all ease-in-out 1000ms;
+-o-transition: all ease-in-out 1000ms;
 }
 
 /* Main Menu */

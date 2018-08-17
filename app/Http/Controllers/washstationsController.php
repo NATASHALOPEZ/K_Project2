@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Mpociot\VatCalculator\VatCalculator;
 
 use App\Laundry;
 use App\Service;
@@ -29,13 +30,30 @@ class washstationsController extends Controller
     {
      
     $data = Laundry::all();
-  
+
     return view('stations.home1')
+
             ->with('data', $data);
 
   
        //$washstations = Laundries::all();
       //return view('stations.home1')->with('data',$washstations);
+    }
+
+        public function validateVATID($vat_id)
+    {
+        try {
+            $isValid = $this->calculator->isValidVATNumber($vat_id);
+            $message = '';
+        } catch (VATCheckUnavailableException $e) {
+            $isValid = false;
+            $message = $e->getMessage();
+        }
+        return [
+            'vat_id'   => $vat_id,
+            'is_valid' => $isValid,
+            'message'  => $message,
+        ];
     }
       public function searchList(Request $request)
     {
@@ -64,7 +82,9 @@ class washstationsController extends Controller
    $radius = $_POST['radius'];
 
     $data = DB::select(DB::raw('SELECT name,address,latitude,longitude,( 3959 * acos( cos( radians(' . $lat . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $lng . ') ) + sin( radians(' . $lat . ') ) * sin( radians(latitude) ) ) ) AS distance FROM Laundry HAVING distance <' . $radius . ' ORDER BY distance') );
-
+ /*   $userLangs = preg_split('/,|;/', $request->server('HTTP_ACCEPT_LANGUAGE'));
+dd($userLangs);*/
+  
   
         return view('stations.home1')
             ->with('data', $data);

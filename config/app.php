@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+
        
 
         /*
@@ -180,7 +181,8 @@ return [
         App\Providers\EventServiceProvider::class,
         Vluzrmos\LanguageDetector\Providers\LanguageDetectorServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Stevebauman\Location\LocationServiceProvider::class,
+        Mpociot\VatCalculator\VatCalculatorServiceProvider::class,
+       /* Stevebauman\Location\LocationServiceProvider::class,*/
 
     ],
 
@@ -231,6 +233,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Location' => Stevebauman\Location\Facades\Location::class,
+        'VatCalculator' => Mpociot\VatCalculator\Facades\VatCalculator::class,
 
     ],
 

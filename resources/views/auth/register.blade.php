@@ -6,11 +6,11 @@
     
 <!-- Breadcrumbs
 ============================================ -->
-<div class="page-title-social margin-0">
+<div class="page-title-social margin-0" >
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <div class="page-title float-left"><h2>Regsiter</h2></div>
+                <div class="page-title float-left"><h2>Register</h2></div>
             </div>
         </div>
     </div>
@@ -28,15 +28,17 @@
             <div class="register-form text-center col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-12">
                 <form method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}
+                   <!--  <input type='hidden' name='role_id'  value='1'/> -->
+
                     <div class="input-two space-80">
                         <div class="input-box">
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">First Name</label>
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                            <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">
+                            <label for="fname">First Name</label>
+                            <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('fname'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('fname') }}</strong>
                                     </span>
                                 @endif
                         </div>
@@ -66,56 +68,62 @@
                                 @endif
                         </div>
                     </div>
-                                         <div class="input-box">
-                            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="username">User Name</label>
-                            <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required>
-                            @if ($errors->has('username'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                     <div class="input-two space-80">
-                       <div class="input-box">
+                     <div class="input-box">
                             <label for="password">Password</label>
                             <input type="password" id="password" name="password"/>
-                        </div>
-
-                      <div class="input-box">
+                        </div>            
+                    </div>                
+                  <div class="input-two space-80">
+                        
+                            <div class="input-box">
                      <label for="password-confirm" class="control-label">Confirm Password</label>
                       <input id="password-confirm" type="password"  name="password_confirmation" required>
                             </div>
-                        </div>
-                    <!--    <div class="input-box">
-                            <div class="form-group{{ $errors->has('email-2') ? ' has-error' : '' }}">
-                            <label for="email-2">Confirm Email Address</label>
-                            <input id="email-2" type="email" class="form-control" name="email-2" value="{{ old('email-2') }}" required>
-                            @if ($errors->has('email-2'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email-2') }}</strong>
-                                    </span>
-                                @endif
-                        </div>
-                    </div> -->
-           
-                   <div class="input-two space-80">
-                      
-                     <!--  -->
+                    
                     </div>
-                    <div class="input-two space-80">
-                        <div class="input-box">
-                            <label for="capture">Enter capture</label>
-                            <input type="text" id="capture"/>
+                    <div class="input-one space-100">
+                         <div class="input-box">
+                            <label for="address">Address</label>
+                            <input type="text" id="address"/>
+                        </div>
+                       
+                        
+                        
+                    </div>
+                   <div class="input-three space-80">
+                      <div class="input-box">
+                            <label for="pinCode">Pin Code</label>
+                            <input type="text" id="pincode"/>
+                        </div>
+                  <div class="input-box">
+                            <label for="phone">Phone</label>
+                            <input type="text" id="phone"/>
                         </div>
                         <div class="input-box">
-                            <label class="opacity">capture image</label>
-                            <div class="capture-text"><img src="/images/capture.jpg" alt="" /></div>
+                            <label for="vat">VAT</label>
+                           <input type="text" id="vat">
+                        </div>
+
+                    </div>
+                       <div class="input-two space-80">
+                         <div class="input-box">
+                            <label for="city">City</label>
+                            <input type="text" id="city"/>
+                        </div>
+                         <div class="input-box">
+                            <label for="state">State</label>
+                            <input type="text" id="state"/>
                         </div>
                     </div>
-              
+                   <div class="input-box">
+                        <label>Subscription</label>
+                        <select>
+                            <option value="1">category</option>
+                            <option value="2">category</option>
+                            <option value="3">category</option>
+                        </select>
+                    </div>
+                
                     <button class="button orange icon">sign up <i class="fa fa-angle-right"></i></button>
                 </form>
             </div>

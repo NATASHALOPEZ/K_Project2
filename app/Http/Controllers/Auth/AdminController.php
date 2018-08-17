@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use Auth;
 use App\User;
@@ -29,7 +29,7 @@ class AdminController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/h1';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -70,9 +70,8 @@ class AdminController extends Controller
     {
 
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            /*'lname' => 'required|string|max:255',*/
-            /*'role_id' => 'required|integer|role_id|max:1',*/
+            'fname' => 'required|string|max:255',
+            'lname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -98,16 +97,15 @@ class AdminController extends Controller
     {
     	
             
-        return User::create([
-            'name' => $data['name'],
+        $user = User::create([
             'role_id' => $data['role_id'],
-           /* 'lname' => $data['lname'],*/
+            'fname' => $data['fname'],
+            'lname' => $data['lname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-         $user
-       ->roles()
-       ->attach(Role::where('name', 'Admin')->first());
+
+       
     return $user;
     }
 }

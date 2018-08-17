@@ -6,5 +6,5 @@ use TCG\Voyager\Http\Controllers\VoyagerBaseController as BaseVoyagerBaseControl
 
 class VoyagerBaseController extends BaseVoyagerBaseController
 {
-    //
+  
 }
