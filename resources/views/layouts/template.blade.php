@@ -270,8 +270,6 @@
 
 <!-- JS -->
 
-<!-- jQuery JS
-============================================ -->
 
 <!-- Bootstrap JS
 ============================================ -->
@@ -291,15 +289,21 @@
 <!-- Magnific Popup JS
 ============================================ -->
 <script src="/js/jquery.magnific-popup.min.js"></script> 
+
 <!-- Range Slider JS
 ============================================ -->
 <script src="/js/range-active.js"></script>  
-<!-- Google Map APi
+<!-- ValValidation
 ============================================ -->
+<script src="/js/vatValidation.js"></script>
+<!-- msform
+============================================ -->
+<script src="/js/msform.js"></script>
 
 <!-- Main JS
 ============================================ -->
 <script src="/js/main.js"></script>
+
  <script>
  /* affix the navbar after scroll below header */
 $('#nav').affix({

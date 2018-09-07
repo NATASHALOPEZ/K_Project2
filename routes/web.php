@@ -56,7 +56,20 @@ Route::get('/some', function () {
      return view('stations.some');
 });
 
+Route::post('/vat', 'VatHelperController@receive')->name('vat');
 
+Route::get('/vat', function()
+{
+    return View::make('auth.register');
+});
+Route::get('get-ip-details', function () {
+    $ipaddress = $_SERVER['REMOTE_ADDR'];
+    echo $ipaddress;
+    $data = \Location::get($ipaddress);
+    dd($data);
+}); 
+
+//Route::post('/validate','washstationsController@validates');
 Route::get(trans('routes.services'), ['as' => 'services', 'uses' => 'PageController@getServicePage']);
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -80,7 +93,8 @@ Route::get('/register_admin', 'Auth\AdminController@index')->name('register_admi
 Route::post('/register_admin', 'Auth\AdminController@register')->name('register_admin');
 Route::get('/home/{vat_id}', 'washstationsController@validateVATID');
 
-
+Route::get('verifyEmail','Auth\RegisterController@verifyEmail')->name('verifyEmail');
+Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
 
 

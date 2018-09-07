@@ -131,3 +131,13 @@
     </div>
 </div>  
 @endsection
+
+<script>
+    var data = <?php echo json_encode($vat_details, true); ?>; 
+    if(data.valid){
+       
+    }
+    else{
+     
+    }
+</script>

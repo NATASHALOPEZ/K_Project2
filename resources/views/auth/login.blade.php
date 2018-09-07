@@ -20,8 +20,14 @@
 <div class="login-page margin-100">
     <div class="container">
         <div class="row">
+           
             <!-- Title & Search -->
             <div class="section-title col-xs-12 margin-bottom-50 margin-top-50">
+        <h4>
+            @if (session('status'))
+             {{session('status')}}
+            @endif
+        </h4>
                 <h1>sign in to your account</h1>
             </div>
             <!-- Contact Form -->

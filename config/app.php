@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Stevebauman\Location\LocationServiceProvider::class,
 
        
 
@@ -234,6 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Location' => Stevebauman\Location\Facades\Location::class,
         'VatCalculator' => Mpociot\VatCalculator\Facades\VatCalculator::class,
+        'Location' => 'Stevebauman\Location\Facades\Location',
 
     ],
 

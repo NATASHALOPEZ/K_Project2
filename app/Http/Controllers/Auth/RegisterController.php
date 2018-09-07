@@ -6,6 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
+use Mail;
+use App\Mail\verificationEmail;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -68,13 +72,48 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Session::flash('status','Registered! but verify your email to ctivate yuor account');
         $user = User::create([
             /*'role_id' => $data['role_id'],*/
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'verifyToken' => Str::random(40),
         ]);
+
+        $thisUser = User::findOrFail($user->id);
+        $this->sendEmail($thisUser);
         return $user;
     }
+
+    public function sendEmail($thisUser)
+    {
+      Mail::to($thisUser['email'])->send(new verificationEmail($thisUser)); 
+    }
+    
+   
+    public function verifyEmail()
+    {
+        return view('email.verifyEmail');
+    }
+
+     public function sendEmailDone($email,$verifyToken)
+    {
+     $user = User::where(['email'=>$email,'verifyToken'=>$verifyToken])->first();
+     if($user){
+        user::where(['email'=>$email,'verifyToken'=>$verifyToken])->update(['status'=>'1','verifyToken'=>NULL]);
+        return redirect(route('login'));
+     }  else{
+         echo 'user not found';    
+     }
+
+    }
+
+     public function validates(Request $request, $vat) {
+        $vat_details = VatCalculator::getVATDetails($vat);    
+        echo $vat_details; 
+    
+      } 
+
 }

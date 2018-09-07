@@ -2,8 +2,14 @@
 
 @section('content')
 
+   <?php //$json = file_get_contents("http://country.io/names.json");
+ $user_ip = getenv('REMOTE_ADDR');
+ $geo= unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=user_ip"));
+    ?> 
 
-    
+
+<!-- Breadcrumbs
+============================================ -->
 <!-- Breadcrumbs
 ============================================ -->
 <div class="page-title-social margin-0" >
@@ -15,6 +21,7 @@
         </div>
     </div>
 </div>
+ 
 <!-- Business Tab Area
 ============================================ -->
 <div class="login-page margin-100">
@@ -24,11 +31,20 @@
             <div class="section-title text-center col-xs-12 margin-bottom-50 margin-top-50">
                 <h1>sign in to your account</h1>
             </div>
+
             <!-- Contact Form -->
             <div class="register-form text-center col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-12">
-                <form method="POST" action="{{ route('register') }}">
+<meta name="_token" content="{{{ csrf_token() }}}"/>
+                <form id="msform"  method="POST" action="{{ route('register') }}">
+                     <ul id="progressbar">
+                <li class="active">Personal Details</li>
+                <li>Laundromat Details</li>
+            </ul>
+
                     {{ csrf_field() }}
-                   <!--  <input type='hidden' name='role_id'  value='1'/> -->
+                    <fieldset>
+                        <h2 class="fs-title">Personal Details</h2>
+                             <input type='hidden' name='role_id'  value='1'/>
 
                     <div class="input-two space-80">
                         <div class="input-box">
@@ -56,7 +72,8 @@
                         </div>
                     </div>
                     </div>
-                    <div class="input-two space-80">
+
+                    <div class="input-one space-100">
                         <div class="input-box">
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email">Email Address</label>
@@ -68,66 +85,78 @@
                                 @endif
                         </div>
                     </div>
-                     <div class="input-box">
+                                
+                    </div>                
+                  <div class="input-two space-100">
+                         <div class="input-box">
                             <label for="password">Password</label>
                             <input type="password" id="password" name="password"/>
-                        </div>            
-                    </div>                
-                  <div class="input-two space-80">
-                        
+                        </div>
                             <div class="input-box">
                      <label for="password-confirm" class="control-label">Confirm Password</label>
                       <input id="password-confirm" type="password"  name="password_confirmation" required>
                             </div>
                     
                     </div>
+                     <input type="button" name="next" class="next action-button" value="Next"/>
+                    </fieldset>
+                   <fieldset>
+                     <h2 class="fs-title">Laundromat Details</h2>
+                         <div class="input-two space-100">
+                            <div class="input-box">
+                                <label for="country">Country</label>
+                               
+                                <input type="text" id="country" value="<?php echo $geo["geoplugin_countryName"] ?>"/>
+                           
+                            
+                            </div>
+                        
+                    
+                        <div class="input-box">
+                            <label for="vat" >VAT Number</label>
+                          
+                            <input type="text" id="vat" name="vat" value="<?php echo $geo["geoplugin_countryCode"] ?>" />
+                           
+                            <button type="button" id="button" name="submitvat"   class="button green icon">validate <i class="fa fa-angle-right"></i></button>
+                             <div  id="errorid" Visible="true"></div>
+                        </div>
+                    </div>
+                     <div class="input-one space-100">
+                         <div class="input-box">
+                            <label for="name">Name</label>
+                            <input readonly="readonly" id="name"/>
+                        </div>
+                    </div>
+                    
                     <div class="input-one space-100">
                          <div class="input-box">
                             <label for="address">Address</label>
-                            <input type="text" id="address"/>
+                            <input  id="address"/>
                         </div>
-                       
-                        
-                        
-                    </div>
-                   <div class="input-three space-80">
-                      <div class="input-box">
-                            <label for="pinCode">Pin Code</label>
-                            <input type="text" id="pincode"/>
-                        </div>
-                  <div class="input-box">
-                            <label for="phone">Phone</label>
-                            <input type="text" id="phone"/>
-                        </div>
-                        <div class="input-box">
-                            <label for="vat">VAT</label>
-                           <input type="text" id="vat">
-                        </div>
+                    </div> 
+                   <div class="input-two space-100">
+         
+                  
 
                     </div>
-                       <div class="input-two space-80">
-                         <div class="input-box">
-                            <label for="city">City</label>
-                            <input type="text" id="city"/>
-                        </div>
-                         <div class="input-box">
-                            <label for="state">State</label>
-                            <input type="text" id="state"/>
-                        </div>
-                    </div>
-                   <div class="input-box">
-                        <label>Subscription</label>
-                        <select>
-                            <option value="1">category</option>
-                            <option value="2">category</option>
-                            <option value="3">category</option>
-                        </select>
-                    </div>
+                     
+               
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+               <button class="button orange icon">sign up <i class="fa fa-angle-right"></i></button>
+                   </fieldset>
+            
+              
                 
-                    <button class="button orange icon">sign up <i class="fa fa-angle-right"></i></button>
+                    
                 </form>
             </div>
         </div>
     </div>
-</div>  
+</div>
+
+
+
 @endsection
+
+
+</div>
