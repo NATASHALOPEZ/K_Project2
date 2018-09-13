@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <!-- Icon Font CSS
   ============================================ -->
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Mean Menu CSS
   ============================================ -->
   <link rel="stylesheet" href="/css/meanmenu.min.css">
@@ -138,11 +138,11 @@
 
                     ?>
                   <div  class="item{{{ $isFirst ? ' active' : '' }}}">
-                  <img id="imgban" src="{{ URL::asset('storage/'.$img->filename) }}" class="img responsive" alt="<?php echo $img->filename?>" />
+                  <img id="imgban" src="{{ URL::asset('storage/'.$img->image) }}" class="img responsive" alt="<?php echo $img->image?>" />
                   <div class="carousel-caption">
                   </div>
                   </div>
-
+<!-- https://maps.googleapis.com/maps/api/geocode/json?address=mangaluru&sensor=true -->
                   <?php
                       $isFirst = false;
                       }

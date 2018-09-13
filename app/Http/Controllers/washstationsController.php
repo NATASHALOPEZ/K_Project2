@@ -8,7 +8,7 @@ use Mpociot\VatCalculator\VatCalculator;
 use App\Laundry;
 use App\Service;
 use App\Article;
-use App\Banner;
+
 
 use DB;
 
@@ -110,24 +110,5 @@ public function passCoords(Request $request)
             ->with('post', $post);
     }
    
-  public  function validates(Request $request) {
-     // This will get all the request data.
-
-      
-    
-    // $data = $request->all();
-    //$temp = $_POST['Imgname'];
-//dd($data);
-return Response::json(Input::get('vat'));
-   // $data= $request->id;
-    //var_dump($data);
-    // $vatCalculator = new VatCalculator();
-     //$vat_details = $vatCalculator->getVATDetails('FR59542051180');
-     //($vat_details);
-    // $datal =json_encode($vat_details, true);
-          
-    /* return view('auth.register')
-            ->with('datal', $datal);*/
-    // return response()->json($vat_details);
-      } 
+  
 }

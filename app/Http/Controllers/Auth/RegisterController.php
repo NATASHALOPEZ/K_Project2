@@ -72,7 +72,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        Session::flash('status','Registered! but verify your email to ctivate yuor account');
+        Session::flash('status','You are Registered! please verify your email to activate your account');
         $user = User::create([
             /*'role_id' => $data['role_id'],*/
             'fname' => $data['fname'],
@@ -110,10 +110,5 @@ class RegisterController extends Controller
 
     }
 
-     public function validates(Request $request, $vat) {
-        $vat_details = VatCalculator::getVATDetails($vat);    
-        echo $vat_details; 
-    
-      } 
 
 }

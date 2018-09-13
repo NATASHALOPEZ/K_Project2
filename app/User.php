@@ -39,6 +39,10 @@ class User extends \TCG\Voyager\Models\User
 public function laundry(){
     return $this->hasMany(Laundry::class);
 }
+public function banner(){
+    return $this->hasMany(Banner::class);
+}
+
 
     public function roles()
     {

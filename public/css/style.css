@@ -2488,3 +2488,22 @@ a.meanmenu-reveal span {
     text-transform: uppercase; 
     font-weight: bold;   
 }
+#loader1 {
+
+  margin-top: 5%;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+.fa_custom {
+color: #0099CC
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

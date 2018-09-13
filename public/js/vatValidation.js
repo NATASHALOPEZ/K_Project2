@@ -3,7 +3,7 @@
        $('#button').click(function() {
         var vat = $("#vat").val();
        // alert(vat);
-
+        $('#loader1').show();
          $('.error').hide();
       var vat= $("input#vat").val();
         if (vat == "") {
@@ -26,12 +26,17 @@
         data: dataString,
          beforeSend: function (request) {
         return request.setRequestHeader('X-CSRF-Token', $("meta[name='csrf-token']").attr('content'));
+        
     },
+
+  complete: function(){
+     $('#loader1').hide();
+  },
         success: function(response){ // What to do if we succeed
           if(response!="false"){
-            console.log(response);
-             obj = JSON.parse(response);
-             console.log(obj);
+            var string = response;
+            res = string.replace(/\\n/g,", ");
+             obj = JSON.parse(res);
               error = "";
             document.getElementById("errorid").innerHTML = error; 
          $('#name').val(obj.name);  

@@ -16,8 +16,5 @@ class BannController extends Controller
     return view('stations.home1')
             ->with('img', $img);
 
-
-       //$washstations = Laundries::all();
-      //return view('stations.home1')->with('img',$washstations);
     }
 }
