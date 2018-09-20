@@ -208,11 +208,15 @@ return [
 
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
-        //'css/custom.css',
+        'css/citiesdropdown.min.css',
     ],
 
     'additional_js' => [
-        //'js/custom.js',
+       // 'js/jq.3.3.1.js'
+      //  'js/jquery1.min.js',
+       // 'js/jquery.1.10.3.ui.min.js',
+       // 'js/autocomplete.js',
+       // 'js/cityDetails.js'
     ],
 
     'googlemaps' => [

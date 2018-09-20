@@ -26,11 +26,20 @@ Route::get('locale/{locale}', function ($locale) {
      return redirect('/welcome');
 });
 
-  
+//Visualization of Banners
 View::composer('layouts.template', function($view){
-   $img = Banner::all();
+    $user_ip = getenv('REMOTE_ADDR');
+    $geo= unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=user_ip"));
+     $lat= $geo["geoplugin_latitude"];
+     $lng= $geo["geoplugin_longitude"];
+   $radius = 180;
+
+    $img = DB::select(DB::raw('SELECT Title,Image,Description,Latitude,Longitude,( 3959 * acos( cos( radians(' . $lat . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $lng . ') ) + sin( radians(' . $lat . ') ) * sin( radians(latitude) ) ) ) AS distance FROM Banners HAVING distance <' . $radius . ' ORDER BY distance') );
+   //$img = Banner::all();
    $view->with('img', $img);
 });   
+
+//Routes
 Route::get('/welcome', function () {
      return view('stations.home1');
 });
@@ -62,14 +71,8 @@ Route::get('/vat', function()
 {
     return View::make('auth.register');
 });
-Route::get('get-ip-details', function () {
-    $ipaddress = $_SERVER['REMOTE_ADDR'];
-    echo $ipaddress;
-    $data = \Location::get($ipaddress);
-    dd($data);
-}); 
 
-//Route::post('/validate','washstationsController@validates');
+
 Route::get(trans('routes.services'), ['as' => 'services', 'uses' => 'PageController@getServicePage']);
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

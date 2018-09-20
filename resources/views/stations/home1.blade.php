@@ -4,9 +4,8 @@
 @section('content')
 <!-- Map
 ============================================ -->
+
 <?php
-
-
 $data = json_encode($data,true);
 echo '<div id= "data">' . $data . '</div>';
 
@@ -81,6 +80,22 @@ echo '<div id= "data">' . $data . '</div>';
  
 <!-- Google Map APi
 ============================================ -->
+<!-- <script type="text/javascript">
+  const Http = new XMLHttpRequest();
+  /*Http.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost');
+  Http.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+Http.setRequestHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+Http.setRequestHeader('Access-Control-Allow-Credentials', true)
+Http.setRequestHeader("Content-Type", "application/json; charset=UTF-8");*/
+const url='http://getcitydetails.geobytes.com/GetCityDetails?fqcn=leiria';
+Http.open("GET", url, true);
+Http.onreadystatechange = function () {
+  if (this.status == 200 && this.readyState == 4) {
+    console.log('response: ' + this.responseText);
+  }
+};
+Http.send();
+</script> -->
 <script src="/js/map-script.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO8WIGpCttR6bydhWF1rQ8gUjKpRmYTu4&libraries=places&callback=initMap"></script>
 </script>

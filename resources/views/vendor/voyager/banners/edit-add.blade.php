@@ -5,6 +5,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
+<!-- <link rel="stylesheet" src="css/citiesdropdown.min.css"> -->
    
 @stop
 
@@ -85,11 +86,18 @@
                             @endforeach
                         <div class="form-group  col-md-12">
                           <label for="name">city</label>
-                            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input required="" type="text" class="form-control ff_elem ui-autocomplete-input ui-corner-all" name="city" placeholder="please enter the city to display advertisement"  type="text" name="ff_nm_from[]" value="" id="f_elem_city" autocomplete="off">
+                            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input required="" type="text" class="form-control ff_elem ui-autocomplete-input ui-corner-all" name="city" placeholder="please enter the city to display advertisement"  type="text" name="ff_nm_from[]" value="" list="autocomplete" id="city" autocomplete="off">
+                            <datalist id="autocomplete">
+                            
+                            </datalist>
                             
                         </div>
-                        
-
+                        <input type="hidden" name="city" id="geobytescity" value="">
+                        <input type="hidden" name="latitude" id="geobyteslatitude" value="">
+                        <input type="hidden" name="longitude" id="geobyteslongitude" value="">
+                         <input type="hidden" name="state" id="geobytesregion" value="">
+                        <input type="hidden" name="country" id="geobytescountry" value="">
+                       
 
                         </div><!-- panel-body -->
 
@@ -138,13 +146,22 @@
 @stop
 
 @section('javascript')
-  
+  <!--  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.24/jquery.autocomplete.min.js"></script> -->
 
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
     <script>
+
+
+        
         var params = {}
         var $image
 
         $('document').ready(function () {
+          
+              $( '#city' ).keyup(function() {
+                 loadLocation();
+            });
             $('.toggleswitch').bootstrapToggle();
 
             //Init datepicker for date fields if data-datepicker attribute defined
@@ -201,73 +218,55 @@
 
      
     </script>
+    <script type="text/javascript">
+      function loadLocation()
+      {
+          var term = $("#city").val();
+        $.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+term,
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                var options = '';
+                 for(var i=0; i < msg.length; i++) {
+                  
+                  options += '<option value="' + msg[i] + '">' + msg[i] + '</option>';
   
- 
-    <script>
-        jQuery(function () 
- {
-     jQuery("#f_elem_city").autocomplete({
-        source: function (request, response) {
-         jQuery.getJSON(
-            "http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
-            function (data) {
-             response(data);
+                   }
+                 $("#autocomplete").html(options);
+                  
             }
-         );
-        },
-        minLength: 3,
-        select: function (event, ui) {
-         var selectedObj = ui.item;
-         jQuery("#f_elem_city").val(selectedObj.value);
-        getcitydetails(selectedObj.value);
-         return false;
-        },
-        open: function () {
-         jQuery(this).removeClass("ui-corner-all").addClass("ui-corner-top");
-        },
-        close: function () {
-         jQuery(this).removeClass("ui-corner-top").addClass("ui-corner-all");
-        }
-     });
-     jQuery("#f_elem_city").autocomplete("option", "delay", 100);
-    });
-function getcitydetails(fqcn) {
+        });
 
-    if (typeof fqcn == "undefined") fqcn = jQuery("#f_elem_city").val();
 
-    cityfqcn = fqcn;
-
-    if (cityfqcn) {
-
-        jQuery.getJSON(
-                    "http://gd.geobytes.com/GetCityDetails?callback=?&fqcn="+cityfqcn,
-                     function (data) {
-                jQuery("#geobytesinternet").val(data.geobytesinternet);
-                jQuery("#geobytescountry").val(data.geobytescountry);
-                jQuery("#geobytesregionlocationcode").val(data.geobytesregionlocationcode);
-                jQuery("#geobytesregion").val(data.geobytesregion);
-                jQuery("#geobyteslocationcode").val(data.geobyteslocationcode);
-                jQuery("#geobytescity").val(data.geobytescity);
-                jQuery("#geobytescityid").val(data.geobytescityid);
-                jQuery("#geobytesfqcn").val(data.geobytesfqcn);
-                jQuery("#geobyteslatitude").val(data.geobyteslatitude);
-                jQuery("#geobyteslongitude").val(data.geobyteslongitude);
-                jQuery("#geobytescapital").val(data.geobytescapital);
-                jQuery("#geobytestimezone").val(data.geobytestimezone);
-                jQuery("#geobytesnationalitysingular").val(data.geobytesnationalitysingular);
-                jQuery("#geobytespopulation").val(data.geobytespopulation);
-                jQuery("#geobytesnationalityplural").val(data.geobytesnationalityplural);
-                jQuery("#geobytesmapreference").val(data.geobytesmapreference);
-                jQuery("#geobytescurrency").val(data.geobytescurrency);
-                jQuery("#geobytescurrencycode").val(data.geobytescurrencycode);
-                }
-        );
-    }
-}
+         $('#city').change(function() {
+          var req = $(this).val();
+          // console.log(userText);
+            $.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "http://gd.geobytes.com/GetCityDetails?callback=?&fqcn="+req,
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                 
+                //console.log(response);
+                 $("#geobytescity").val(response.geobytescity); 
+                 $("#geobyteslatitude").val(response.geobyteslatitude); 
+                 $("#geobyteslongitude").val(response.geobyteslongitude); 
+                 $("#geobytesregion").val(response.geobytesregion); 
+                $("#geobytescountry").val(response.geobytescountry);  
+            }
+        });
+           
+         });
+      }  
+        
     </script>
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>   
- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>  -->
+    <script>
+   
+    </script>
+
 @stop
