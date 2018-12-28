@@ -19,9 +19,7 @@
 <script src="http://demo.expertphp.in/js/jquery.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-     <script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places&key=AIzaSyCO8WIGpCttR6bydhWF1rQ8gUjKpRmYTu4"
-    async defer>
-        </script>
+    
      <script src="{{ asset('/js/map-script.js') }}"></script>
 
   </head>

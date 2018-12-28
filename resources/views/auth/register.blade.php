@@ -12,23 +12,23 @@
     
 <!-- Breadcrumbs
 ============================================ -->
-<div class="page-title-social margin-0">
+<div class="page-title-social margin-0 hidden-sm hidden-md hidden-xs ">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <div class="page-title float-left"><h2>Regsiter</h2></div>
+                <div class="page-title float-left"><h2></h2></div>
             </div>
         </div>
     </div>
 </div>
 <!-- Business Tab Area
 ============================================ -->
-<div class="login-page margin-100">
+<div class="login-page margin-0">
     <div class="container">
         <div class="row">
             <!-- Title & Search -->
             <div class="section-title text-center col-xs-12 margin-bottom-50">
-                <h1>sign in to your account</h1>
+                <h1></h1>
             </div>
             <!-- Contact Form -->
             <div class="register-form text-center col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-12">
@@ -36,13 +36,14 @@
                     {{ csrf_field() }}
 
             <!-- progressbar -->
-            <ul id="progressbar">
+            <ul id="progressbar" class="">
                 <li class="active">Personal Details</li>
                 <li>Laundromat Details</li>
             </ul>
             <!-- fieldsets -->
             <fieldset>
                 <h2 class="fs-title">Personal Details</h2>
+                 <input type='hidden' name='role_id'  value='2'/>
                   <div class="input-two space-80">
                         <div class="input-box">
                             <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">
@@ -111,13 +112,13 @@
                         </div>
                     </div>
                      <div class="input-box">
-                            <div class="form-group{{ $errors->has('vat') ? ' has-error' : '' }}">
-                            <label for="vat">VAT NUMBER</label>
-                            <input id="vat" type="text" class="form-control" name="vat" value="<?php echo $geo["geoplugin_countryCode"] ?>" required autofocus>
+                            <div class="form-group{{ $errors->has('VAT') ? ' has-error' : '' }}">
+                            <label for="VAT">VAT NUMBER</label>
+                            <input id="vat" type="text" class="form-control" name="VAT" value="<?php echo $geo["geoplugin_countryCode"] ?>" required autofocus>
 
-                                @if ($errors->has('vat'))
+                                @if ($errors->has('VAT'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('vat') }}</strong>
+                                        <strong>{{ $errors->first('VAT') }}</strong>
                                     </span>
                                 @endif
                         </div>
@@ -129,16 +130,16 @@
                     <div id="errorid"></div>
                        <div class="input-one space-100">
                         <div class="input-box">
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">Company name</label>
-                            <input id="name" type="name" readonly="readonly" class="form-control" name="name" value="" required>
+                            <div class="form-group{{ $errors->has('company') ? ' has-error' : '' }}">
+                            <label for="company">Company name</label>
+                            <input id="company" type="name" readonly="readonly" class="form-control" name="company" value="" required>
                            
                         </div>
                     </div>
                        <div class="input-box">
-                            <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label for="address">Company Address</label>
-                            <textarea id="address" type="address" readonly="readonly" class="form-control" name="address" value="" required></textarea> 
+                            <div class="form-group{{ $errors->has('Address') ? ' has-error' : '' }}">
+                            <label for="Address">Company Address</label>
+                            <textarea id="Address" type="address" readonly="readonly" class="form-control" name="Address" value="" required></textarea> 
                          
                         </div>
                     </div>

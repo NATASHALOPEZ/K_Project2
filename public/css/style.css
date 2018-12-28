@@ -239,11 +239,15 @@ li{
 }
 .main-banner{
   margin: 0 auto;
-  width: 728px;
+  max-width: 728px;
   height: 90px;
   overflow: hidden;
   position: relative;
+  padding-top: 0px;
+
+    width: 96%;
 }
+
 .main-banner .imgban{
   display:block;
   height:auto;
@@ -432,7 +436,8 @@ a.meanmenu-reveal span {
 
 /* Header Link */
 .header-link {
-  margin-left: 45px;
+  margin-right: 5px;
+  margin-left: 5px;
   margin-top: 4px;
 }
 .header-link .button {}
@@ -2332,7 +2337,7 @@ a.meanmenu-reveal span {
     padding: 20px 30px;
     box-sizing: border-box;
     width: 90%;
-    margin: 0 10%;
+    margin: 10px 10%;
 
     /*stacking fieldsets above each other*/
     position: relative;
@@ -2420,7 +2425,8 @@ a.meanmenu-reveal span {
 
 /*progressbar*/
 #progressbar {
-
+ 
+     margin-left: auto; margin-right:auto;
     margin-bottom: 30px;
 
     overflow: hidden;
@@ -2429,6 +2435,7 @@ a.meanmenu-reveal span {
 }
 
 #progressbar li {
+  margin-left: auto; margin-right:auto;
     list-style-type: none;
     color: black;
    
@@ -2441,6 +2448,7 @@ a.meanmenu-reveal span {
 }
 
 #progressbar li:before {
+  margin-left: auto; margin-right:auto;
     content: counter(step);
     counter-increment: step;
     width: 24px;

@@ -11,7 +11,7 @@ return [
     */
 
     'user' => [
-        'add_default_role_on_register' => true,
+        'add_default_role_on_register' => false,
         'default_role'                 => 'admin',
         // Set `namespace` to `null` to use `config('auth.providers.users.model')` value
         // Set `namespace` to a class to override auth user model.
@@ -165,6 +165,8 @@ return [
         ],
 
         'widgets' => [
+            'TCG\\Voyager\\Widgets\\PostDimmer',
+            'App\\Widgets\\Laundry',
 
         ],
 
@@ -209,6 +211,7 @@ return [
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
         'css/citiesdropdown.min.css',
+    
     ],
 
     'additional_js' => [

@@ -48,7 +48,10 @@ a:hover {
 .input-range{
   margin-top: 10px;
 }
-
+#progressbar{
+ 
+ padding-top: 100px;
+}
 
 /*.footer-top {
   position: absolute;
@@ -98,8 +101,22 @@ a:hover {
 .input-range{
   margin-top: 10px;
 }
+.main-banner{
+  margin: 0 auto;
+  left:-50px;
+  width:  728px;
+  height: 90px;
+  overflow: hidden;
+  position: relative;
 
-
+}
+.margin-0 {
+  margin-top: 75px !important;
+}
+#progressbar{
+  padding-left: 180px;
+ padding-right: 10px;
+}
 /*.footer-top {
   position: absolute;
   background-color: #2d343d;
@@ -146,7 +163,18 @@ a:hover {
   margin-top: 5px;
 }
 
-
+.main-banner{
+  margin: 0 auto;
+  left:-50px;
+  width:  728px;
+  height: 90px;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 30px;
+}
+.margin-0 {
+  margin-top: 200px !important;
+}
 
 }
 
@@ -218,8 +246,15 @@ a:hover {
 .our-offer {
   margin-bottom: 60px;
 }
-
-
+.main-banner{
+  margin: 0 auto;
+  padding-bottom: 30px;
+  left:-50px;
+  width:  528px;
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+}
 
 }
 
@@ -273,7 +308,7 @@ a.meanmenu-reveal {
 }
 .main-banner{
   margin: 0 auto;
-  width: 728px;
+  width: 100%;
   height: 90px;
   overflow: hidden;
   position: relative;
@@ -287,6 +322,9 @@ transition: all ease-in-out 1000ms;
 -webkit-transition: all ease-in-out 1000ms;
 -moz-transition: all ease-in-out 1000ms;
 -o-transition: all ease-in-out 1000ms;
+}
+.margin-100 {
+  margin: 10px !important;
 }
 
 /*.location-search-float {
@@ -381,7 +419,9 @@ transition: all ease-in-out 1000ms;
 .business-details-form .category-select select {
   width: 100%;
 }
-
+.margin-100 {
+  margin: 0px !important;
+}
 }
 /* small mobile :320px. */
 @media only screen and (max-width: 479px) {
@@ -473,6 +513,9 @@ a.meanmenu-reveal {
 }
 .page-404 h1 {
   font-size: 120px;
+}
+.margin-100{
+  margin: 0px !important;
 }
 
 

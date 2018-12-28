@@ -5,6 +5,7 @@
 
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
 @stop
 
 @section('page_title', __('voyager::generic.'.(!is_null($dataTypeContent->getKey()) ? 'edit' : 'add')).' '.$dataType->display_name_singular)
@@ -84,7 +85,7 @@
                                 @endif
                             @endforeach
 
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
                         <label>Categories</label>
                         <ul style="list-style-type: none;padding-left: 0">
                              @foreach($allCategories as $Category)
@@ -95,6 +96,35 @@
                         </ul>
                       
                         </div>
+
+                        <div class="form-group col-md-6" >
+                            <style type="text/css">
+                                .main{
+                                    display: grid;
+                                    padding: 10px;
+                                    grid-template-columns: repeat(3, 140px);
+                                    
+                                    grid-gap: 30px;
+                                   
+                                }
+
+
+                            </style>
+                            <label >Timings</label>
+                            <ul style="list-style-type: none;padding-left: 0">
+                             @foreach($allBusiness as $business)
+                        <div class="main">
+                        <li   ><label  ><input value=" {{ $business->id }} " type="checkbox" name="business[]" style="margin-right:5px;" 
+                           >{{ $business->days }}</label></li>
+                           <li ><label > From:<input id="open" type="time" name="open"  /></label></li>
+                            <li ><label > To:<input id="close" type="time" name="close"  /></label></li>
+                        </div>
+
+                        @endforeach
+                        </ul>
+                        </div>
+                      
+                     
                            
                             <div class="form-group  col-md-12" >
                              <style type="text/css">
@@ -300,9 +330,11 @@
 
         });
     });
-  
+ 
 </script>
+
  <script src="https://maps.googleapis.com/maps/api/js?v=3&callback=initMap&libraries=places&key=AIzaSyCO8WIGpCttR6bydhWF1rQ8gUjKpRmYTu4"
     async defer>
         </script>
+
 @stop

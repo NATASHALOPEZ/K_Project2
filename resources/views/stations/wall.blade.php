@@ -33,9 +33,12 @@
 			<div class="business-img-wrapper col-xs-12">
 				<img src="img/business/business-logo.png" alt="" class="logo float-left" />
 				<div class="content fix">
-					<h3>Software Engineering Company Inc.</h3>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+					<h3 id = "laundryName">{{ $laundryData->name }}</h3>
+					
+					<!-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                     
 						</p>
+						 -->
 				</div>
 				<div class="business-social">
 					<img src="img/business/social.png" alt="" />
@@ -45,8 +48,9 @@
 	</div>
 
  </div>
-<div id= "lat" style="display: none;">{{ $lat }}</div>
-<div id= "lon" style="display: none;">{{ $lon }}</div>
+<div id= "lat" style="display: none;">{{ $laundryData->latitude }}</div>
+<div id= "lon" style="display: none;">{{ $laundryData->longitude }}</div>
+
 <div class="business-tab-area margin-bottom-100 margin-top-50">
 	<div class="container">
 		<div class="row">
@@ -71,14 +75,24 @@
 					</div>
 					<!-- Opening Hours Business Sidebar -->
 					<div class="sin-busi-sidebar">
+						<h4 class="sidebar-title">Services</h4>
+						<div class="opening-hours-sidebar fix">
+                            @foreach($services as $service)
+	
+
+							<p><span class="day">{{ $service->name }}</span></p>
+							@endforeach
+						</div>
+					</div>
+					<div class="sin-busi-sidebar">
 						<h4 class="sidebar-title">opening hours</h4>
 						<div class="opening-hours-sidebar fix">
-							<p><span class="day">Mon</span><span class="time">8:00 AM  -  2:00 PM</span></p>
-							<p><span class="day">Tue</span><span class="time">8:00 AM  -  4:00 PM</span></p>
-							<p><span class="day">Wed</span><span class="time">8:00 AM  -  2:00 PM</span></p>
-							<p><span class="day">Thu</span><span class="time">7:00 AM  -  2:00 PM</span></p>
-							<p><span class="day">Fri</span><span class="time">8:00 AM  -  4:00 PM</span></p>
-							<p><span class="day">Sat</span><span class="time">8:00 AM  -  6:00 PM</span></p>
+							@foreach($openingHours as $hours)
+	
+
+							<p><span class="day">{{ $hours->days }}</span><span class="time">8:00 AM  -  2:00 PM</span></p>
+							@endforeach
+							
 						</div>
 					</div>
 					<!-- Contact Business Sidebar -->
@@ -86,7 +100,8 @@
 						<h4 class="sidebar-title">contact information</h4>
 						<div class="contact-info-sidebar fix">
 							<p class="phone">+49 123456789  /  +49 123456789</p>
-							<p class="address">147, Pentstreet Avenue, NYC 641002</p>
+							<p class="address">{{$laundryData->address}}</p>
+							<p class="address">{{$laundryData->City}}</p>
 							<p class="email"><a href="#">info@email.com</a></p>
 							<p class="website"><a href="#">www.website.com</a></p>
 						</div>
@@ -141,7 +156,7 @@
 									<!-- Post Head -->
 									<div class="head fix">
 										<a href="#" class="post-logo"><img src="img/business-post/logo.png" alt="" /></a>
-										<h3><a href="#">Your business title here</a></h3>
+										<h2>{{ $laundryData->name }}</h2>
 									</div>
 									<!-- Post Content -->
 									<div class="content content-text">
@@ -265,7 +280,7 @@
 									</div>
 								</div>
 								<!-- Newsletter Sidebar -->
-								<div class="sin-sidebar fix">
+							<!-- 	<div class="sin-sidebar fix">
 									<h4 class="sidebar-title">subscribe to newsletter</h4>
 									<div class="newsletter-sidebar">
 										<div class="subscribe-form">
@@ -276,7 +291,7 @@
 											</form>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<!-- Comment Sidebar -->
 								<div class="sin-sidebar fix">
 									<h4 class="sidebar-title">comments</h4>
@@ -320,7 +335,8 @@
 									<a href="#">add images</a>
 								</div>
 								<div class="busi-photos-wrapper">
-									<div class="sin-photo"><!-- <a href="img/business-photo/1.jpg"><img src="img/business-photo/1.jpg" alt="" /></a></div>
+									<div class="sin-photo">
+									<a href="img/business-photo/1.jpg"><img src="{{asset('storage/'.$laundryData->image) }}" alt="" /></a></div><!-- <a href="img/business-photo/1.jpg"><img src="img/business-photo/1.jpg" alt="" /></a></div>
 									<div class="sin-photo"><a href="img/business-photo/2.jpg"><img src="img/business-photo/2.jpg" alt="" /></a></div>
 									<div class="sin-photo"><a href="img/business-photo/3.jpg"><img src="img/business-photo/3.jpg" alt="" /></a></div>
 									<div class="sin-photo"><a href="img/business-photo/4.jpg"><img src="img/business-photo/4.jpg" alt="" /></a></div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Mpociot\VatCalculator\VatCalculator;
 
 use App\Laundry;
+use App\BusinessLaundry;
 use App\Service;
 use App\Article;
 
@@ -90,14 +91,18 @@ dd($userLangs);*/
             ->with('data', $data);
     }
 
-public function passCoords(Request $request)
+public function passCoords(Request $request, $id)
     {
-   $lat = $_POST['lat'];
-   $lon = $_POST['lon'];
-
-     
-        return view('stations.wall',compact('lat','lon'));      
+ /*  $lat = $_POST['lat'];
+   $lon = $_POST['lon'];*/
+    //$ups = User::find(Auth::user()->id)->products()->get(); 
+    $laundryData = Laundry::find($id); 
+    $services   = Laundry::find($id)->category()->get();
+    $openingHours = Laundry::find($id)->business()->get();
+    return view('stations.wall',compact( 'laundryData','services','openingHours'));      
     }
+
+
       public function show($slug)
     {
         // This is the only difference you need be aware of
@@ -109,6 +114,14 @@ public function passCoords(Request $request)
         return view('post')
             ->with('post', $post);
     }
-   
+
+
+  /*  
+   public function passData(Request $request)
+   {
+    $BusinessHours = BusinessLaundry::all();
+
+      return view('stations.wall')->with('BusinessHours',$BusinessHours);
+   }*/
   
 }

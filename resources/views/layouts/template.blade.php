@@ -3,6 +3,7 @@
 <html lang="{{ app()->getLocale() }}">
 <html class="no-js" lang="zxx">
 <head>
+  
   <meta charset="utf-8">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,7 +13,11 @@
   <title>{{ config('app.name', 'Laundries') }}</title>
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-  
+ <!--  <script type="text/javascript" 
+        src="http://gc.kis.scr.kaspersky-labs.com/B2E59CDC-2AC6-E046-B621-E6E592DB2D09/
+             main.js" 
+        charset="UTF-8">
+</script> -->
   <!-- Bootstrap CSS
   ============================================ -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -55,7 +60,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/B2E59CDC-2AC6-E046-B621-E6E592DB2D09/main.js" charset="UTF-8"></script>
+ <!--  <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/B2E59CDC-2AC6-E046-B621-E6E592DB2D09/main.js" charset="UTF-8"></script> -->
   <script src="/js/modernizr-2.8.3.min.js"></script>
   
 </head>
@@ -117,12 +122,21 @@
            
             <!-- Header Link -->
             <div class="header-link float-right hidden-sm hidden-xs">
- <h5 style="text-transform: uppercase;">own a Laundry?</h5>
+             <h5 style="text-transform: uppercase;">own a Laundry?</h5>
               <a style="text-decoration: none;" href="{{ route('login') }}" class="button blue icon">{{ __('homeContent.sign_in')}} <i class="fa fa-angle-right"></i></a>
               <a style="text-decoration: none;" href="{{ route('register') }}" class="button">{{ __('homeContent.register')}}</a>
             </div>
+               <div class="mobile-menu hidden-lg hidden-md">
+              <nav  >
+                <ul class="header-link float-right">
+                  <a style="text-decoration: none;" href="{{ route('login') }}" class="button blue icon">{{ __('homeContent.sign_in')}} <i class="fa fa-angle-right"></i></a>
+                   <a style="text-decoration: none;" href="{{ route('register') }}" class="button">{{ __('homeContent.register')}}</a>
+                 
+                </ul>
+              </nav>
+            </div>
             <!-- Main Menu -->
-            <div class="main-menu float-right hidden-sm hidden-xs main-banner " >
+            <div class="main-menu float-right main-banner " >
               <nav id="main-banner" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators" >
                   @for($i=0;$i<=count($img);$i++)
@@ -184,15 +198,7 @@
               </nav>
             </div>
             <!-- Mobile Menu -->
-  <div class="mobile-menu hidden-lg hidden-md">
-              <nav  >
-                <ul class="header-link float-right">
-                  <a style="text-decoration: none;" href="{{ route('login') }}" class="button blue icon">{{ __('homeContent.sign_in')}} <i class="fa fa-angle-right"></i></a>
-                   <a style="text-decoration: none;" href="{{ route('register') }}" class="button">{{ __('homeContent.register')}}</a>
-                 
-                </ul>
-              </nav>
-            </div>
+      
            
              
             </div>
@@ -293,16 +299,17 @@
 <!-- Range Slider JS
 ============================================ -->
 <script src="/js/range-active.js"></script>  
+<!-- Main JS
+============================================ -->
+<script type="text/javascript" src="/js/mainweb.js"></script>
 <!-- ValValidation
 ============================================ -->
 <script src="/js/vatValidation.js"></script>
 <!-- msform
 ============================================ -->
-<script src="/js/msform.js"></script>
+<script type="text/javascript" src="/js/msform.js"></script>
 
-<!-- Main JS
-============================================ -->
-<script src="/js/main.js"></script>
+
 
  <script>
  /* affix the navbar after scroll below header */

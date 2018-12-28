@@ -40,6 +40,14 @@
                         {{ csrf_field() }}
 
                         <div class="panel-body">
+                             <div class="form-group  col-md-12">
+                          <label for="name">Region</label>
+                            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                            <input   required="" type="text" class="form-control ff_elem ui-autocomplete-input ui-corner-all" name="Area" placeholder="please enter the city to display advertisement"  type="text" name="ff_nm_from[]" value="" list="autocomplete" id="city" autocomplete="off">
+                            <datalist id="autocomplete">
+                            
+                            </datalist></>
+                             </div>
 
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">
@@ -53,11 +61,13 @@
                               
                             <!-- Adding / Editing -->
                             @php
+
                                 $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
                             @endphp
-
+                                
                             @foreach($dataTypeRows as $row)
                                 <!-- GET THE DISPLAY OPTIONS -->
+
                                 @php
                                     $options = json_decode($row->details);
                                     $display_options = isset($options->display) ? $options->display : NULL;
@@ -84,19 +94,16 @@
                                     </div>
                                 @endif
                             @endforeach
-                        <div class="form-group  col-md-12">
-                          <label for="name">city</label>
-                            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input required="" type="text" class="form-control ff_elem ui-autocomplete-input ui-corner-all" name="city" placeholder="please enter the city to display advertisement"  type="text" name="ff_nm_from[]" value="" list="autocomplete" id="city" autocomplete="off">
-                            <datalist id="autocomplete">
-                            
-                            </datalist>
-                            
-                        </div>
-                        <input type="hidden" name="city" id="geobytescity" value="">
-                        <input type="hidden" name="latitude" id="geobyteslatitude" value="">
+
+                            <input type="hidden" name="Area" id="geobytescity" value="">
+                             <input type="hidden" name="latitude" id="geobyteslatitude" value="">
                         <input type="hidden" name="longitude" id="geobyteslongitude" value="">
                          <input type="hidden" name="state" id="geobytesregion" value="">
-                        <input type="hidden" name="country" id="geobytescountry" value="">
+                        <input type="hidden" name="country" id="geobytescountry" value="">  
+                        
+                        
+                        
+                        
                        
 
                         </div><!-- panel-body -->
@@ -252,7 +259,7 @@
             contentType: "application/json; charset=utf-8",
             success: function (response) {
                  
-                //console.log(response);
+                console.log(response);
                  $("#geobytescity").val(response.geobytescity); 
                  $("#geobyteslatitude").val(response.geobyteslatitude); 
                  $("#geobyteslongitude").val(response.geobyteslongitude); 

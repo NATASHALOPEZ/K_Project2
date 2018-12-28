@@ -32,13 +32,16 @@ View::composer('layouts.template', function($view){
     $geo= unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=user_ip"));
      $lat= $geo["geoplugin_latitude"];
      $lng= $geo["geoplugin_longitude"];
-   $radius = 180;
+   $radius = 80;
 
     $img = DB::select(DB::raw('SELECT Title,Image,Description,Latitude,Longitude,( 3959 * acos( cos( radians(' . $lat . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $lng . ') ) + sin( radians(' . $lat . ') ) * sin( radians(latitude) ) ) ) AS distance FROM Banners HAVING distance <' . $radius . ' ORDER BY distance') );
    //$img = Banner::all();
    $view->with('img', $img);
 });   
-
+Route::get('test', function()
+{
+    dd(Config::get('mail'));
+});
 //Routes
 Route::get('/welcome', function () {
      return view('stations.home1');
@@ -59,6 +62,11 @@ Route::get('/registerNew', function () {
      //App::setlocale($lang);
      return view('stations.register');
 });
+Route::get('/email', function () {
+     //App::setlocale($lang);
+     return view('email.sendEmail');
+});
+
 
 Route::get('/some', function () {
      //App::setlocale($lang);
@@ -83,8 +91,11 @@ Auth::routes();
 Route::get('/welcome',array('as'=>'complete','uses'=>'washstationsController@index'));
 
 Route::get('/searchList',array('as'=>'searchList','uses'=>'washstationsController@searchList'));
-Route::post('/wall','washstationsController@passCoords');
-Route::get('/wall',array('as'=>'wall','uses'=>'washstationsController@passCoords'));
+Route::post('/wall/{id}','washstationsController@passCoords');
+Route::get('/wall/{id}',array('as'=>'wall','uses'=>'washstationsController@passCoords'));
+
+/*Route::post('/wall','washstationsController@passData');
+Route::get('/wall',array('as'=>'wall','uses'=>'washstationsController@passData'));*/
 
 
 Route::get('/home', 'HomeController@index')->name('home');

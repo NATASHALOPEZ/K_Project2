@@ -1,5 +1,4 @@
-<!-- To verify your account <a href="{{route('sendEmailDone',["email"=> $user->email, "verifyToken"=> $user->verifyToken])}}">click here</a>
- -->
+
 
 <!DOCTYPE html>
 <html>
@@ -8,11 +7,17 @@
 </head>
  
 <body>
-<h2> {{$user['fname']}},Thank you for registering on our site</h2>
+<h2> Hey {{$user['fname']}},</h2>
 <br/>
-Your registered email-id is {{$user['email']}} , Please click on the below link to verify your email account
+Thanks for registering on our App!
+Your registeration email-id is {{$user['email']}} . 
 <br/>
-<a href="{{route('sendEmailDone',["email"=> $user->email, "verifyToken"=> $user->verifyToken])}}">Verify Email</a>
+<br>
+Before we get started, we'll need to verify your email.
+<br/>
+<button class="btn btn-primary" type="submit"><a href="{{route('sendEmailDone',["email"=> $user->email, "verifyToken"=> $user->verifyToken])}}">Verify Email</a></button>
+<!-- <a href="{{route('sendEmailDone',["email"=> $user->email, "verifyToken"=> $user->verifyToken])}}">Verify Email</a> -->
 </body>
  
 </html>
+

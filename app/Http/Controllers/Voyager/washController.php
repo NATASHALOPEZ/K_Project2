@@ -14,6 +14,9 @@ use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use App\Laundry;
 use App\Category;
 use App\CategoryLaundry;
+use App\Business;
+
+
 
 
 class washController extends \TCG\Voyager\Http\Controllers\Controller
@@ -139,6 +142,8 @@ class washController extends \TCG\Voyager\Http\Controllers\Controller
         $relationships = $this->getRelationships($dataType);
         $allCategories= Category::all();
         $allLaundries= Laundry::all();
+        $allBusiness = Business::all();
+
         $dataTypeContent = (strlen($dataType->model_name) != 0)
             ? app($dataType->model_name)->with($relationships)->findOrFail($id)
             : DB::table($dataType->name)->where('id', $id)->first();
@@ -162,12 +167,14 @@ class washController extends \TCG\Voyager\Http\Controllers\Controller
 
           $laundry = Laundry::find($id);
           $CategoriesForLaundry = $laundry->category()->get();
+          //$BusinessForLaundry = $laundry->business()->get();
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','allLaundries','allCategories','CategoriesForLaundry','laundry'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','allLaundries','allCategories','allBusiness','CategoriesForLaundry','laundry'));
     }
     // POST BR(E)AD
     public function update(Request $request, $id)
     {
+       
         $slug = $this->getSlug($request);
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
         // Compatibility with Model binding.
@@ -194,6 +201,8 @@ class washController extends \TCG\Voyager\Http\Controllers\Controller
                         'category_id' => $category,
                     ]);
             }
+           
+
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
                 ->with([
@@ -238,10 +247,12 @@ class washController extends \TCG\Voyager\Http\Controllers\Controller
 
        $allCategories= Category::all();
         $allLaundries= Laundry::all();
+        $allBusiness = Business::all();
      
           $CategoriesForLaundry = collect([]);
+       
            $CoordsForLaundry = collect([]);
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','allLaundries','allCategories','CategoriesForLaundry','CoordsForLaundry'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','allLaundries','allCategories','allBusiness','BusinessForLaundry','CategoriesForLaundry','CoordsForLaundry'));
     }
     /**
      * POST BRE(A)D - Store data.
@@ -276,6 +287,23 @@ class washController extends \TCG\Voyager\Http\Controllers\Controller
                         'category_id' => $category,
                     ]);
             }
+           
+          /*  //open
+            if($request->open){
+                foreach ($request->open as $open)
+                    BusinessLaundry::create([
+                        'laundry_id' => $data->id,
+                        'open' => $open,
+                        ]);
+            }
+             if($request->open){
+                foreach ($request->close as $close)
+                    BusinessLaundry::create([
+                        'laundry_id' => $data->id,
+                        'close' => $close,
+                        ]);
+            }*/
+
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
                 ->with([

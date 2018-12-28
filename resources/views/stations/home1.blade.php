@@ -56,11 +56,7 @@ echo '<div id= "data">' . $data . '</div>';
 
             
             </form>
-          <form id="test2"  method="POST" action="{{'wall'}}">
-            {{ csrf_field() }}
-            <input type="hidden"  id="lat" name="lat" value="" ></>
-             <input type="hidden" id="lon" name="lon" value="" ></>
-          </form>
+        
           </div>
         </div>
       </div>

@@ -81,9 +81,14 @@ console.log(data);
    
          
     //showMarkers(data);
-for (var i = 0, length = data.length; i < length; i++) {
-  var data1 = data[i],
-      latLng = new google.maps.LatLng(data1.latitude, data1.longitude); 
+for (var i = 0;  i < (data.length); i++) {
+  createMarker(data[i]);
+}
+
+function createMarker(data) {
+  // var data1 = data[i];
+  //console.log(data1);
+      latLng = new google.maps.LatLng(data.latitude, data.longitude); 
 
   // Creating a marker and putting it on the map
    var image = {
@@ -95,23 +100,23 @@ for (var i = 0, length = data.length; i < length; i++) {
     position: latLng,
     map: map,
     icon:image,
-    title: data1.name
+    title: data.name,
+    url : 'http://127.0.0.1:8000/en/wall/' + data.id,
   });
 
       google.maps.event.addListener(marker, "click", function(event) {
-                // get lat/lon of click
+    
+               window.location.href =marker.url ;
 
-                var clickLat = event.latLng.lat();
-                var clickLon = event.latLng.lng();
-                document.getElementById('lat').value = clickLat;
-                 document.getElementById('lon').value = clickLon;
-                
-              document.getElementById('test2').submit();
   
              
             });
 
+
+
 }
+
+ 
 
 
   $('#search').autocomplete({

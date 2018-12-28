@@ -39,14 +39,14 @@
              obj = JSON.parse(res);
               error = "";
             document.getElementById("errorid").innerHTML = error; 
-         $('#name').val(obj.name);  
-         $('#address').val(obj.address);
+         $('#company').val(obj.name);  
+         $('#Address').val(obj.address);
         $code = obj.countryCode;
           } else{
              error = "Vat ID is Invalid.";
             document.getElementById("errorid").innerHTML = error; 
-             $('#name').val('');  
-            $('#address').val('');
+             $('#company').val('');  
+            $('#Address').val('');
             // $('#country').val(''); 
           } 
        
