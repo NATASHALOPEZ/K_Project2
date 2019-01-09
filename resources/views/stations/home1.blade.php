@@ -30,7 +30,7 @@ echo '<div id= "data">' . $data . '</div>';
           <div class="location-search fix">
             <h5 style="text-transform: uppercase;"><b>{{ __('homeContent.make_a_search')}}</b></h5>
             
-            <form id="testForm"  method="POST" action="{{'userLocation'}}">
+            <form id="testForm"  method="POST" action="{{'welcome'}}">
               {{ csrf_field() }}
               
               <div class="input-kayword" ><input type="text" id="search" placeholder=" City or Laundry name" /></div>

@@ -7,6 +7,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -58,12 +59,53 @@ class LoginController extends Controller
                     
        }
      else {
-        return redirect('/');
+        return redirect('/admin');
      }
 }
+
+
+
 public function logout(Request $request) {
   Auth::logout();
   return redirect('/login');
 }
+
+
+ public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $userSocial = Socialite::driver('facebook')->user();
+
+        //return  $userSocial->name;
+
+        $findUser = User::where('email',$userSocial->email)->first();
+
+        if ($findUser){
+         Auth::login($findUser);
+         return 'done with old';
+
+        }else{
+        $user = new User;
+        $user->name = $userSocial->name;
+        $user->email = $userSocial->email;
+        $user->save();
+        Auth::login($user);
+
+        return 'done with new';
+
+        }
+
+       
+    }
+
 }
 

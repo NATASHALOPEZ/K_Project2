@@ -22,7 +22,7 @@
         <div class="row">
            
             <!-- Title & Search -->
-            <div class="section-title col-xs-12 margin-bottom-50 margin-top-50">
+            <div class="section-title col-xs-12 margin-bottom-100 margin-top-100">
         <h4>
             @if (session('status'))
              {{session('status')}}
@@ -31,7 +31,7 @@
                 <h1>sign in to your account</h1>
             </div>
             <!-- Contact Form -->
-            <div class="login-form col-lg-6 col-md-7 col-xs-12 fix">
+            <div class="login-form col-lg-6 col-md-7 col-xs-12 fix margin-bottom-50" >
                 <form  method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
                     <div class="input-two">
@@ -65,9 +65,11 @@
                         <label for="remember">Remember me!</label>
                         <a href="{{ route('password.request') }}">Forgot password?</a>
                     </div>
+
                     <button class="button blue icon">sign in <i class="fa fa-angle-right"></i></button>
                     <button class="button social-login facebook"><i class="fa fa-facebook"></i>Sign In with facebook</button>
                     <button class="button social-login twitter"><i class="fa fa-twitter"></i>Sign In with Twitter</button>
+
                 </form>
             </div>
         </div>

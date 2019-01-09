@@ -163,6 +163,8 @@
 										
 										<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.</p>
 										<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te ui blandit praesent luptatum zzril delenit</p>
+										<a href=""><img src="{{asset('storage/'.$laundryData->image) }}" alt="" /></a>
+
 										<a href="#">ream more</a>
 									</div>
 									<!-- Post Footer -->
@@ -336,7 +338,7 @@
 								</div>
 								<div class="busi-photos-wrapper">
 									<div class="sin-photo">
-									<a href="img/business-photo/1.jpg"><img src="{{asset('storage/'.$laundryData->image) }}" alt="" /></a></div><!-- <a href="img/business-photo/1.jpg"><img src="img/business-photo/1.jpg" alt="" /></a></div>
+									<a href=""><img src="{{asset('storage/'.$laundryData->image) }}" alt="" /></a></div><!-- <a href="img/business-photo/1.jpg"><img src="img/business-photo/1.jpg" alt="" /></a></div>
 									<div class="sin-photo"><a href="img/business-photo/2.jpg"><img src="img/business-photo/2.jpg" alt="" /></a></div>
 									<div class="sin-photo"><a href="img/business-photo/3.jpg"><img src="img/business-photo/3.jpg" alt="" /></a></div>
 									<div class="sin-photo"><a href="img/business-photo/4.jpg"><img src="img/business-photo/4.jpg" alt="" /></a></div>

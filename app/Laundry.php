@@ -2,7 +2,10 @@
 
 namespace App;
 
+use TCG\Voyager\Traits\HasRelationships;
+
 use Illuminate\Database\Eloquent\Model;
+
 use App\Laundry;
 
 class Laundry extends Model
@@ -18,6 +21,7 @@ class Laundry extends Model
    	return $this->belongsTo(User::class);
 
    }
+   
    public function brand(){
       return $this->belongsTo('App\Brand')->withPivot('id');
    }

@@ -34,7 +34,7 @@ View::composer('layouts.template', function($view){
      $lng= $geo["geoplugin_longitude"];
    $radius = 80;
 
-    $img = DB::select(DB::raw('SELECT Title,Image,Description,Latitude,Longitude,( 3959 * acos( cos( radians(' . $lat . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $lng . ') ) + sin( radians(' . $lat . ') ) * sin( radians(latitude) ) ) ) AS distance FROM Banners HAVING distance <' . $radius . ' ORDER BY distance') );
+    $img = DB::select(DB::raw('SELECT title,image,description,latitude,longitude,( 3959 * acos( cos( radians(' . $lat . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $lng . ') ) + sin( radians(' . $lat . ') ) * sin( radians(latitude) ) ) ) AS distance FROM Banners HAVING distance <' . $radius . ' ORDER BY distance') );
    //$img = Banner::all();
    $view->with('img', $img);
 });   
@@ -85,14 +85,15 @@ Route::get(trans('routes.services'), ['as' => 'services', 'uses' => 'PageControl
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
-Route::post('/userLocation', 'washstationsController@getCoords');
-Route::get('/userLocation',array('as'=>'userLocation','uses'=>'washstationsController@getCoords'));
+Route::post('/welcome', 'washstationsController@getCoords');
+Route::get('/welcome',array('as'=>'userLocation','uses'=>'washstationsController@getCoords'));
 Auth::routes();
 Route::get('/welcome',array('as'=>'complete','uses'=>'washstationsController@index'));
 
 Route::get('/searchList',array('as'=>'searchList','uses'=>'washstationsController@searchList'));
 Route::post('/wall/{id}','washstationsController@passCoords');
 Route::get('/wall/{id}',array('as'=>'wall','uses'=>'washstationsController@passCoords'));
+
 
 /*Route::post('/wall','washstationsController@passData');
 Route::get('/wall',array('as'=>'wall','uses'=>'washstationsController@passData'));*/
@@ -110,7 +111,10 @@ Route::get('/home/{vat_id}', 'washstationsController@validateVATID');
 Route::get('verifyEmail','Auth\RegisterController@verifyEmail')->name('verifyEmail');
 Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
+//facebook socialite
 
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

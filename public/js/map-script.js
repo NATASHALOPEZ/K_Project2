@@ -116,7 +116,11 @@ function createMarker(data) {
 
 }
 
- 
+  var image = {
+            url: "/images/dot.png",
+          
+          
+           }; 
 
 
   $('#search').autocomplete({
@@ -132,32 +136,44 @@ function createMarker(data) {
 
                         }
 
-}));
+                 }));
             
                  },
     select: function(event,ui){
       var name = ui.item.value + "|" + ui.item.city;
+      //alert(id);
       if(name != '') {
          var location    =   new google.maps.LatLng(ui.item.latitude,ui.item.longitude);
-                    marker =   new google.maps.Marker({
+                    /*marker =   new google.maps.Marker({
                         map:map,  
                         icon:image                     
-                    })                
+                    }) */
+
+
+
+                    var marker = new google.maps.Marker({
+                        position: latLng,
+                        map: map,
+                        icon:image,
+                        title: ui.item.value,
+                        url : 'http://127.0.0.1:8000/en/wall/' + ui.item.id,
+                      });
+
 
                     marker.setPosition(location);
                     map.setCenter(location);
                     map.setZoom(13);
                   google.maps.event.addListener(marker, "click", function(event) {
+                     window.location.href =marker.url ;
                 // get lat/lon of click
-
-                var clickLat = ui.item.latitude;
-                var clickLon = ui.item.longitude;
-                document.getElementById('lat').value = clickLat;
-                 document.getElementById('lon').value = clickLon;
+                //alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
+                //var clickLat = event.latLng.lat();
+               // var clickLon = event.latLng.lng();
+                //document.getElementById('lat').value = clickLat;
+                 //document.getElementById('lon').value = clickLon;
                 
-              document.getElementById('test2').submit();
+              //document.getElementById('test2').submit();
   
-             
             });
 
 

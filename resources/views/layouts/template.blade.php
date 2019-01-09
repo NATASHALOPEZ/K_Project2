@@ -152,7 +152,7 @@
 
                     ?>
                   <div  class="item{{{ $isFirst ? ' active' : '' }}}">
-                  <img id="imgban" src="{{ URL::asset('storage/'.$img->Image) }}" class="img responsive" alt="<?php echo $img->Image?>" />
+                  <img id="imgban" src="{{ URL::asset('storage/'.$img->image) }}" class="img responsive" alt="<?php echo $img->image?>" />
                   <div class="carousel-caption">
                   </div>
                   </div>

@@ -66,7 +66,7 @@ class washstationsController extends Controller
       
         $data=array();
         foreach ($detail as $l_data) {
-                $data[]=array('value'=>$l_data->name,'city'=>$l_data->City,'latitude'=>$l_data->latitude,'longitude'=>$l_data->longitude);
+                $data[]=array('id'=>$l_data->id,'value'=>$l_data->name,'city'=>$l_data->City,'latitude'=>$l_data->latitude,'longitude'=>$l_data->longitude);
         }
         if(count($data))
              return $data;
@@ -82,7 +82,7 @@ class washstationsController extends Controller
    $lng = $_POST['longitude'];
    $radius = $_POST['radius'];
 
-    $data = DB::select(DB::raw('SELECT name,address,latitude,longitude,( 3959 * acos( cos( radians(' . $lat . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $lng . ') ) + sin( radians(' . $lat . ') ) * sin( radians(latitude) ) ) ) AS distance FROM Laundry HAVING distance <' . $radius . ' ORDER BY distance') );
+    $data = DB::select(DB::raw('SELECT id,name,address,latitude,longitude,( 3959 * acos( cos( radians(' . $lat . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $lng . ') ) + sin( radians(' . $lat . ') ) * sin( radians(latitude) ) ) ) AS distance FROM Laundry HAVING distance <' . $radius . ' ORDER BY distance') );
  /*   $userLangs = preg_split('/,|;/', $request->server('HTTP_ACCEPT_LANGUAGE'));
 dd($userLangs);*/
   
@@ -95,12 +95,15 @@ public function passCoords(Request $request, $id)
     {
  /*  $lat = $_POST['lat'];
    $lon = $_POST['lon'];*/
-    //$ups = User::find(Auth::user()->id)->products()->get(); 
+    //$ups = User::find(Auth::user()->id)->products()->get();
+     $data = Laundry::all(); 
     $laundryData = Laundry::find($id); 
     $services   = Laundry::find($id)->category()->get();
     $openingHours = Laundry::find($id)->business()->get();
-    return view('stations.wall',compact( 'laundryData','services','openingHours'));      
+    return view('stations.wall',compact( 'data','laundryData','services','openingHours'));      
     }
+
+
 
 
       public function show($slug)

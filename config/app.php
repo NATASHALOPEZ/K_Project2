@@ -183,6 +183,7 @@ return [
         Vluzrmos\LanguageDetector\Providers\LanguageDetectorServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Mpociot\VatCalculator\VatCalculatorServiceProvider::class,
+        
        /* Stevebauman\Location\LocationServiceProvider::class,*/
 
     ],
@@ -236,6 +237,7 @@ return [
         'Location' => Stevebauman\Location\Facades\Location::class,
         'VatCalculator' => Mpociot\VatCalculator\Facades\VatCalculator::class,
         'Location' => 'Stevebauman\Location\Facades\Location',
+       
 
     ],
 
